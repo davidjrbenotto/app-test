@@ -41,4 +41,12 @@ jobs:
           cache: 'npm'
       - run: npm i
       - run: npm run test
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker build -t davidjrbenotto/app-test .
+      - run: echo "${{secrets.DOCKERHUB_PASSWORD}}" | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
+      - run: docker push davidjrbenotto/app-test
 # Updated 
