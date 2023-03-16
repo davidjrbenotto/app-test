@@ -43,8 +43,8 @@ jobs:
       - run: npm run test
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-22.04
     steps:
       -
         name: Checkout
